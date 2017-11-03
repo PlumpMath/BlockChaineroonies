@@ -16,13 +16,21 @@ namespace BrockuChainuru
 
             foreach (var block in chain.Blocks)
             {
-                Console.WriteLine($"{block.Index}:{block.PreviousHash}:{block.Hash}:{block.TimeStamp.Ticks}:{block.Data}");
+                WriteBlockToConsole(block);
             }
 
             Console.WriteLine($"Block state: {chain.State}");
-
             Console.ReadLine();
         }
 
+        private static void WriteBlockToConsole(Block block)
+        {
+            Console.WriteLine($"Block Height: {block.Index}");
+            Console.WriteLine($"Hash: {block.Hash}");
+            Console.WriteLine($"Previous Hash: {block.PreviousHash}");
+            Console.WriteLine($"Timestamp: {block.TimeStamp.Ticks}");
+            Console.WriteLine($"Data: {block.Data}");
+            Console.WriteLine();
+        }
     }
 }
